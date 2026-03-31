@@ -24,8 +24,23 @@
 ## 快速开始
 
 ```bash
-npx pubguard check --dry-run            # 扫描 npm 将要发布的文件
-npx pubguard check my-pkg.tgz --strict  # 扫描指定 tarball
+git clone https://github.com/MRT-8/pubguard.git
+cd pubguard
+npm install
+npm run build
+```
+
+**扫描你的项目：**
+
+```bash
+node dist/cli.js check --dry-run            # 扫描 npm 将要发布的文件
+node dist/cli.js check my-pkg.tgz --strict  # 扫描指定 tarball
+```
+
+**或通过 npx 使用（发布到 npm 后）：**
+
+```bash
+npx pubguard check --dry-run
 ```
 
 **加入发布流程（推荐）：**

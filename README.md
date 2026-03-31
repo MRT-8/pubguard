@@ -24,8 +24,23 @@ Born from the [Claude Code source map leak](https://dev.to/gabrielanhaia/claude-
 ## Quick Start
 
 ```bash
-npx pubguard check --dry-run            # scan what npm would publish
-npx pubguard check my-pkg.tgz --strict  # scan a tarball, fail on errors
+git clone https://github.com/MRT-8/pubguard.git
+cd pubguard
+npm install
+npm run build
+```
+
+**Scan your project:**
+
+```bash
+node dist/cli.js check --dry-run            # scan what npm would publish
+node dist/cli.js check my-pkg.tgz --strict  # scan a tarball, fail on errors
+```
+
+**Or install globally / via npx (after publishing to npm):**
+
+```bash
+npx pubguard check --dry-run
 ```
 
 **Add to your publish workflow (recommended):**
