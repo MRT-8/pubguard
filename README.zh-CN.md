@@ -1,6 +1,6 @@
 <div align="center">
 
-# pubguard
+# PubGuard
 
 **守护你的每一次发布。**
 
@@ -10,39 +10,20 @@
 [![Node](https://img.shields.io/badge/node-%3E%3D18-brightgreen.svg)](https://nodejs.org)
 [![Zero Dependencies](https://img.shields.io/badge/dependencies-0-brightgreen.svg)](#)
 
+[![npm](https://img.shields.io/npm/v/pubguard.svg)](https://www.npmjs.com/package/pubguard)
+[![Test](https://github.com/MRT-8/pubguard/actions/workflows/test.yml/badge.svg)](https://github.com/MRT-8/pubguard/actions)
+
 [English](./README.md) | **中文**
 
 </div>
 
 ---
 
-源于 [Claude Code source map 泄露事件](https://dev.to/gabrielanhaia/claude-codes-entire-source-code-was-just-leaked-via-npm-source-maps-heres-whats-inside-cjo) — 一个 57MB 的 `.map` 文件将 51.2 万行源码暴露在 npm 上。没有任何工具拦截。**pubguard 能做到。**
+源于 [Claude Code source map 泄露事件](https://dev.to/gabrielanhaia/claude-codes-entire-source-code-was-just-leaked-via-npm-source-maps-heres-whats-inside-cjo) — 一个 57MB 的 `.map` 文件将 51.2 万行源码暴露在 npm 上。没有任何工具拦截。**PubGuard 能做到。**
 
-## 演示
-
-```
-$ pubguard check leaky-app-1.0.0.tgz --strict
-
-pubguard scan results
-4 files, 956 B
-
-  x  Source map "dist/cli.js.map" 包含 sourcesContent
-     — 完整的原始源码被嵌入，即将被发布
-     fix: 在 .npmignore 中添加 "*.map"，或在 bundler 中关闭 sourcemap
-
-  x  "dist/index.js" 包含 AI system prompt (systemPrompt 变量)
-     fix: 将 system prompt 移至环境变量或私有配置服务
-
-  x  检测到敏感文件 ".env"
-     fix: 在 .npmignore 中添加 ".env"，或使用 package.json 的 "files" 白名单
-
-  !  "dist/index.js" 引用了本地 source map "index.js.map"
-     fix: 生产构建时移除 sourceMappingURL
-
-  3 error(s)  1 warning(s)
-
-  发布已阻断 — 请先修复以上问题
-```
+<picture>
+  <img alt="PubGuard demo" src="assets/demo.svg" width="100%">
+</picture>
 
 ## 快速开始
 
@@ -58,44 +39,28 @@ npm install -D pubguard
 npm pkg set scripts.prepublishOnly="pubguard check --dry-run --strict"
 ```
 
-之后 `npm publish` 会自动先运行 pubguard，发现 error 级问题则阻断发布。
+之后 `npm publish` 会自动先运行 PubGuard，发现 error 级问题则阻断发布。
 
 ## 检测规则
 
-| 规则 | 默认级别 | 检测内容 |
-|------|---------|---------|
-| `sourcemap-leak` | error | `.map` 文件含 `sourcesContent` — 完整源码泄露 |
-| `sourcemap-reference` | warn | JS/CSS 中的 `sourceMappingURL` 引用 |
-| `env-file` | error | `.env`、`.npmrc`、`credentials.json`、SSH 配置等 |
-| `private-key` | error | `.pem`、`.key`、`id_rsa`、PEM 编码私钥 |
-| `system-prompt` | error | 代码中嵌入的 AI system prompt |
-| `unminified-source` | warn | 大型未混淆 JS 文件（疑似未打包的源码） |
-| `debug-config` | warn | `debug: true`、`NODE_ENV=development` 等调试配置 |
-| `internal-url` | warn | 内部 URL（`*.internal.*`、私有 IP 地址） |
+- **`sourcemap-leak`** &mdash; `.map` 文件含 `sourcesContent` — 完整源码泄露
+- **`sourcemap-reference`** &mdash; JS/CSS 中的 `sourceMappingURL` 引用
+- **`env-file`** &mdash; `.env`、`.npmrc`、`credentials.json`、SSH 配置等
+- **`private-key`** &mdash; `.pem`、`.key`、`id_rsa`、PEM 编码私钥
+- **`system-prompt`** &mdash; 代码中嵌入的 AI system prompt
+- **`unminified-source`** &mdash; 大型未混淆 JS 文件（疑似未打包的源码）
+- **`debug-config`** &mdash; `debug: true`、`NODE_ENV=development` 等调试配置
+- **`internal-url`** &mdash; 内部 URL（`*.internal.*`、私有 IP 地址）
 
-## 为什么需要 pubguard？
+## 为什么需要 PubGuard？
 
-现有工具覆盖**代码中的密钥**和**依赖漏洞**，但没有工具检查**发布包里的实际内容**：
+现有工具覆盖代码中的密钥和依赖漏洞，但没有工具检查**发布包里的实际内容**：
 
 | | 代码密钥 | Source map 泄露 | System prompt 暴露 | .env 误发布 |
 |---|:---:|:---:|:---:|:---:|
 | TruffleHog / Gitleaks | ✅ | ❌ | ❌ | ❌ |
 | npm audit | ❌ | ❌ | ❌ | ❌ |
-| **pubguard** | — | **✅** | **✅** | **✅** |
-
-## 使用方法
-
-```bash
-pubguard check [file.tgz] [options]
-pubguard init                        # 创建 .pubguardrc.json 配置文件
-
-选项:
-  --dry-run        扫描 npm 将要发布的文件（无需 .tgz）
-  --strict         发现 error 级问题时 exit 1
-  --format <fmt>   输出格式：text（默认）、json、sarif
-  --output <file>  输出到文件
-  --config <path>  指定配置文件路径
-```
+| **PubGuard** | — | ✅ | ✅ | ✅ |
 
 <details>
 <summary><b>配置文件</b></summary>
@@ -151,7 +116,8 @@ export default {
 
 </details>
 
-## CI/CD 集成
+<details>
+<summary><b>CI/CD 集成</b></summary>
 
 **GitHub Actions：**
 
@@ -176,12 +142,31 @@ export default {
 - run: npm publish --provenance                # 带 SLSA 签名发布
 ```
 
+</details>
+
+<details>
+<summary><b>CLI 参考</b></summary>
+
+```
+pubguard check [file.tgz] [options]
+pubguard init                        # 创建 .pubguardrc.json 配置文件
+
+选项:
+  --dry-run        扫描 npm 将要发布的文件（无需 .tgz）
+  --strict         发现 error 级问题时 exit 1
+  --format <fmt>   输出格式：text（默认）、json、sarif
+  --output <file>  输出到文件
+  --config <path>  指定配置文件路径
+```
+
+</details>
+
 ## 工作原理
 
 1. 读取包内容（通过 `npm pack --dry-run` 或 `.tgz` 文件）
 2. 8 条检测规则逐文件扫描
 3. 输出发现 + 严重级别 + 修复建议
-4. error 级发现 → 非零退出码 → 阻断 `npm publish`
+4. error 级发现 &rarr; 非零退出码 &rarr; 阻断 `npm publish`
 
 零依赖。全部本地执行。不外发任何数据。
 

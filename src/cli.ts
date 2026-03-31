@@ -85,7 +85,7 @@ function parseArgs(argv: string[]): CliOptions {
 
 function printHelp(): void {
   console.log(`
-pubguard v${VERSION} — Guard what you publish
+PubGuard v${VERSION} — Guard what you publish
 
 Usage:
   pubguard check [<file.tgz>] [options]
@@ -244,6 +244,6 @@ async function main(): Promise<void> {
 }
 
 main().catch((err: Error) => {
-  console.error(`\x1b[31mpubguard error:\x1b[0m ${err.message}`);
+  console.error(`\x1b[31mPubGuard error:\x1b[0m ${err.message}`);
   process.exit(2);
 });

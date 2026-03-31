@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# pubguard demo — creates a leaky npm package and scans it
+# PubGuard demo — creates a leaky npm package and scans it
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
@@ -8,8 +8,8 @@ TMP_DIR=$(mktemp -d)
 trap "rm -rf $TMP_DIR" EXIT
 
 echo ""
-echo "  pubguard demo"
-echo "  ============="
+echo "  PubGuard demo"
+echo "  =============="
 echo ""
 echo "  Creating a test package with common security issues..."
 echo ""
@@ -43,13 +43,13 @@ EOF
 cd "$TMP_DIR"
 tar czf leaky-app-1.0.0.tgz package/
 
-echo "  Scanning with pubguard..."
+echo "  Scanning with PubGuard..."
 echo ""
 
 # Run pubguard
 node "$PROJECT_DIR/dist/cli.js" check "$TMP_DIR/leaky-app-1.0.0.tgz" --strict 2>&1 || true
 
 echo ""
-echo "  pubguard blocked the publish!"
+echo "  PubGuard blocked the publish!"
 echo "  Fix the issues above, then publish safely."
 echo ""

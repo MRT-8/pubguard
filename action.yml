@@ -1,4 +1,4 @@
-name: 'pubguard'
+name: 'PubGuard'
 description: 'Scan npm packages for sensitive content before publishing'
 branding:
   icon: 'shield'
@@ -21,7 +21,7 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - name: Run pubguard
+    - name: Run PubGuard
       shell: bash
       run: |
         ARGS="check --dry-run"

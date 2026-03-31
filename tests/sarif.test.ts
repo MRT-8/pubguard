@@ -26,7 +26,7 @@ describe('formatSarif', () => {
     expect(sarif.$schema).toContain('sarif-schema-2.1.0.json');
     expect(sarif.version).toBe('2.1.0');
     expect(sarif.runs).toHaveLength(1);
-    expect(sarif.runs[0].tool.driver.name).toBe('pubguard');
+    expect(sarif.runs[0].tool.driver.name).toBe('PubGuard');
     expect(sarif.runs[0].tool.driver.version).toBe('1.0.0');
     expect(sarif.runs[0].tool.driver.rules).toEqual([]);
     expect(sarif.runs[0].results).toEqual([]);

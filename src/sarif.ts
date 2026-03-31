@@ -83,7 +83,7 @@ export function formatSarif(report: ScanReport): string {
       {
         tool: {
           driver: {
-            name: 'pubguard',
+            name: 'PubGuard',
             version: '1.0.0',
             rules,
           },

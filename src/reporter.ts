@@ -23,7 +23,7 @@ export function formatReport(report: ScanReport, json: boolean): string {
   const lines: string[] = [];
 
   lines.push('');
-  lines.push(`${BOLD}pubguard${RESET} scan results`);
+  lines.push(`${BOLD}PubGuard${RESET} scan results`);
   lines.push(`${DIM}${report.totalFiles} files, ${formatSize(report.totalSize)}${RESET}`);
   lines.push('');
 
