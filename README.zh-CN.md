@@ -1,20 +1,16 @@
 <div align="center">
-
-# PubGuard
-
-**守护你的每一次发布。**
-
-在 npm 包发布前，自动检测 source map 泄露、AI system prompt 暴露、敏感文件残留。
-
-[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
-[![Node](https://img.shields.io/badge/node-%3E%3D18-brightgreen.svg)](https://nodejs.org)
-[![Zero Dependencies](https://img.shields.io/badge/dependencies-0-brightgreen.svg)](#)
-
-[![npm](https://img.shields.io/npm/v/pubguard.svg)](https://www.npmjs.com/package/pubguard)
-[![Test](https://github.com/MRT-8/pubguard/actions/workflows/test.yml/badge.svg)](https://github.com/MRT-8/pubguard/actions)
-
-[English](./README.md) | **中文**
-
+  <h1>PubGuard</h1>
+  <p><strong>守护你的每一次发布。</strong></p>
+  <p>在 npm 包发布前，自动检测 source map 泄露、AI system prompt 暴露、敏感文件残留。</p>
+  <p>
+    <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache%202.0-blue.svg" alt="License"></a>
+    <a href="https://nodejs.org"><img src="https://img.shields.io/badge/node-%3E%3D18-brightgreen.svg" alt="Node"></a>
+    <img src="https://img.shields.io/badge/dependencies-0-brightgreen.svg" alt="Zero Dependencies">
+  </p>
+  <p>
+    <a href="https://www.npmjs.com/package/pubguard"><img src="https://img.shields.io/npm/v/pubguard.svg" alt="npm"></a>
+  </p>
+  <p><a href="./README.md">English</a> | <strong>中文</strong></p>
 </div>
 
 ---
