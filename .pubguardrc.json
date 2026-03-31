@@ -1,0 +1,19 @@
+{
+  "rules": {
+    "sourcemap-leak": "error",
+    "sourcemap-reference": "warn",
+    "env-file": "error",
+    "private-key": "error",
+    "system-prompt": "error",
+    "unminified-source": "warn",
+    "debug-config": "warn",
+    "internal-url": "warn"
+  },
+  "ignore": [
+    "dist/rules/**"
+  ],
+  "thresholds": {
+    "max-package-size": "10MB",
+    "max-file-size": "5MB"
+  }
+}

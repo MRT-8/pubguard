@@ -1,0 +1,7 @@
+src/
+tests/
+*.map
+.pubguardrc.json
+vitest.config.ts
+tsconfig.json
+.gitignore
