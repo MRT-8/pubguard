@@ -21,6 +21,10 @@
   <img alt="PubGuard demo" src="assets/demo.svg" width="100%">
 </picture>
 
+<p align="center">
+  <img src="assets/detection-pipeline.png" alt="Detection Pipeline" width="80%">
+</p>
+
 ## 快速开始
 
 ```bash
@@ -76,10 +80,6 @@ npm pkg set scripts.prepublishOnly="pubguard check --dry-run --strict"
 | TruffleHog / Gitleaks | ✅ | ❌ | ❌ | ❌ |
 | npm audit | ❌ | ❌ | ❌ | ❌ |
 | **PubGuard** | — | ✅ | ✅ | ✅ |
-
-<p align="center">
-  <img src="assets/tool-coverage-gap-analysis.png" alt="Tool Coverage Gap Analysis" width="80%">
-</p>
 
 <details>
 <summary><b>配置文件</b></summary>
@@ -181,10 +181,6 @@ pubguard init                        # 创建 .pubguardrc.json 配置文件
 </details>
 
 ## 工作原理
-
-<p align="center">
-  <img src="assets/detection-pipeline.png" alt="Detection Pipeline" width="80%">
-</p>
 
 1. 读取包内容（通过 `npm pack --dry-run` 或 `.tgz` 文件）
 2. 8 条检测规则逐文件扫描
