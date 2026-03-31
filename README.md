@@ -67,11 +67,19 @@ Now `npm publish` automatically runs PubGuard first. Errors block the publish.
 
 Existing tools find secrets in code or vulnerabilities in dependencies. Nobody checks **what's actually inside your published package**:
 
+<p align="center">
+  <img src="assets/three-layer-defense-model.png" alt="Three-Layer Defense Model" width="80%">
+</p>
+
 | | Secrets in code | Source map leak | System prompt leak | .env in package |
 |---|:---:|:---:|:---:|:---:|
 | TruffleHog / Gitleaks | ✅ | ❌ | ❌ | ❌ |
 | npm audit | ❌ | ❌ | ❌ | ❌ |
 | **PubGuard** | — | ✅ | ✅ | ✅ |
+
+<p align="center">
+  <img src="assets/tool-coverage-gap-analysis.png" alt="Tool Coverage Gap Analysis" width="80%">
+</p>
 
 <details>
 <summary><b>Configuration</b></summary>
@@ -182,6 +190,10 @@ Options:
 </details>
 
 ## How It Works
+
+<p align="center">
+  <img src="assets/detection-pipeline.png" alt="Detection Pipeline" width="80%">
+</p>
 
 1. Reads your package contents (via `npm pack --dry-run` or `.tgz` file)
 2. Runs each file through 8 detection rules
