@@ -1,8 +1,5 @@
 <div align="center">
   <img src="assets/cover.png" alt="PubGuard Cover" width="100%">
-
-  <h1>PubGuard</h1>
-
   <p><strong>Guard what you publish.</strong></p>
 
   <p><strong>Source Map Leak Detection</strong> | <strong>System Prompt Exposure</strong> | <strong>Sensitive File Guard</strong></p>

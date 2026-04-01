@@ -1,8 +1,5 @@
 <div align="center">
   <img src="assets/cover.png" alt="PubGuard Cover" width="100%">
-
-  <h1>PubGuard</h1>
-
   <p><strong>守护你的每一次发布。</strong></p>
 
   <p><strong>Source Map 泄露检测</strong> | <strong>System Prompt 暴露防护</strong> | <strong>敏感文件守卫</strong></p>
