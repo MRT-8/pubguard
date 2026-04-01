@@ -11,6 +11,7 @@
     <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache%202.0-blue.svg" alt="License"></a>
     <a href="https://nodejs.org"><img src="https://img.shields.io/badge/node-%3E%3D18-brightgreen.svg" alt="Node"></a>
     <img src="https://img.shields.io/badge/dependencies-0-brightgreen.svg" alt="Zero Dependencies">
+    <a href="https://www.npmjs.com/package/pubguard"><img src="https://img.shields.io/npm/v/pubguard.svg" alt="npm"></a>
   </p>
 
   <p><strong>English</strong> | <a href="./README.zh-CN.md">中文</a></p>
@@ -191,7 +192,7 @@ Options:
 ## How It Works
 
 <p align="center">
-  <img src="assets/detection-pipeline.png" alt="Detection Pipeline" width="80%">
+  <img src="assets/detection-pipeline-v2.png" alt="Detection Pipeline" width="80%">
 </p>
 
 1. Reads your package contents (via `npm pack --dry-run` or `.tgz` file)

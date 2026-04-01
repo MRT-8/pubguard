@@ -11,6 +11,7 @@
     <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache%202.0-blue.svg" alt="License"></a>
     <a href="https://nodejs.org"><img src="https://img.shields.io/badge/node-%3E%3D18-brightgreen.svg" alt="Node"></a>
     <img src="https://img.shields.io/badge/dependencies-0-brightgreen.svg" alt="Zero Dependencies">
+    <a href="https://www.npmjs.com/package/pubguard"><img src="https://img.shields.io/npm/v/pubguard.svg" alt="npm"></a>
   </p>
 
   <p><a href="./README.md">English</a> | <strong>中文</strong></p>
@@ -182,7 +183,7 @@ pubguard init                        # 创建 .pubguardrc.json 配置文件
 ## 工作原理
 
 <p align="center">
-  <img src="assets/detection-pipeline.png" alt="Detection Pipeline" width="80%">
+  <img src="assets/detection-pipeline-v2.png" alt="Detection Pipeline" width="80%">
 </p>
 
 1. 读取包内容（通过 `npm pack --dry-run` 或 `.tgz` 文件）
