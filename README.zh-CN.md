@@ -1,15 +1,19 @@
 <div align="center">
+  <img src="assets/cover.png" alt="PubGuard Cover" width="100%">
+
   <h1>PubGuard</h1>
+
   <p><strong>守护你的每一次发布。</strong></p>
-  <p>在 npm 包发布前，自动检测 source map 泄露、AI system prompt 暴露、敏感文件残留。</p>
+
+  <p><strong>Source Map 泄露检测</strong> | <strong>System Prompt 暴露防护</strong> | <strong>敏感文件守卫</strong></p>
+
   <p>
     <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache%202.0-blue.svg" alt="License"></a>
     <a href="https://nodejs.org"><img src="https://img.shields.io/badge/node-%3E%3D18-brightgreen.svg" alt="Node"></a>
     <img src="https://img.shields.io/badge/dependencies-0-brightgreen.svg" alt="Zero Dependencies">
-  </p>
-  <p>
     <a href="https://www.npmjs.com/package/pubguard"><img src="https://img.shields.io/npm/v/pubguard.svg" alt="npm"></a>
   </p>
+
   <p><a href="./README.md">English</a> | <strong>中文</strong></p>
 </div>
 
